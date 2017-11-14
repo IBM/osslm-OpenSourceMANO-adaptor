@@ -1,0 +1,1 @@
+# osslm-OpenSourceMANO-adaptor
