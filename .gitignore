@@ -1,0 +1,5 @@
+
+#shared app files
+**/.DS_Store
+var_alm_osm_rm/**
+**/.linter*

@@ -1,0 +1,16 @@
+driver:
+  name: osm-rm
+  version: 0.1
+  supportedApiVersions:
+    - "1.0"
+  supportedFeatures:
+    AsynchronousTransitionResponses: false
+  properties:
+    - responseKafkaConnectionUrl: "kafka:9092"
+    - responseKafkaTopicName: "osm-rm"
+osm:
+  resource_dir: "/var/alm_osm_rm/resources"
+  keys_dir: "/var/alm_osm_rm/keys"
+  osm_host: "192.168.65.49"
+cassandra:
+  ttl: 86400

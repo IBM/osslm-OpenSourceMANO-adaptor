@@ -1,0 +1,36 @@
+version: '3'
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 10.10.10.10/24
+services:
+  alm-osm-rm-db:
+     image: cassandra:3.10
+     ports:
+       - "9042:9042"
+       - "9160:9160"
+     volumes:
+       - "./var_alm_osm_rm/cassandra:/var/lib/cassandra/data"
+     environment:
+       # important: broadcast address must be set to the Docker hostname
+       - CASSANDRA_BROADCAST_ADDRESS=alm-osm-rm-db
+       - CASSANDRA_CLUSTER_NAME=alm-osm-rm-cluster
+       - CASSANDRA_SEEDS=alm-osm-rm-db
+       - CASSANDRA_REMOTE_CONNECTION=true
+       - CASSANDRA_START_RPC=true
+  alm-osm-rm:
+     build:
+       context: ./osm-adaptor
+       dockerfile: Dockerfile
+     ports:
+       - "8081:8081"
+     volumes:
+       - "./var_alm_osm_rm/driver:/var/alm_osm_rm"
+     environment:
+       - LOG_LEVEL=DEBUG
+       - LOG_FOLDER=/var/alm_osm_rm/logs
+     extra_hosts:
+       - "kafka:192.168.63.179"
+     depends_on:
+       - alm-osm-rm-db
