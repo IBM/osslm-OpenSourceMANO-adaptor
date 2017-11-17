@@ -16,6 +16,7 @@ File: _osslm-OpenSourceMANO-adaptor/alm-osm-rm-docker-compose.yml_
 |services.alm-osm-rm.environment.extra_hosts.kafka|192.168.63.179|IP address of your ALM kafka/zookeeper instance|
 
 File: _osslm-OpenSourceMANO-adaptor/osm-adaptor/config.yml_
+
 | property | default | comment|
 |----------|---------|--------|
 |driver.supportedFeatures.AsynchronousTransitionResponses|false| set to _true_ if you want to suppor async mode |
