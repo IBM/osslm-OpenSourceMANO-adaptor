@@ -29,7 +29,7 @@ This resource manager is packaged in two docker containers managed by docker-com
 - container running cassandra 3
 
 Folders for logging shared with the host.
-You should find them in <install_dir>/var_alm_osm_rm/driver/logs
+You should find them in `<install_dir>/var_alm_osm_rm/driver/logs`
 
 ## Pre-reqs
 - docker version >= 17.06.0-ce
